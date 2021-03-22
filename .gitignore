@@ -3,7 +3,8 @@ __pycache__/
 *.py[cod]
 
 #file
-.idea
+.idea/
+static/
 
 # Distribution / packaging
 .Python
