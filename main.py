@@ -6,7 +6,8 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-app.config['UPLOAD_FOLDER'] = 'static'
+UPLOAD_FOLDER = 'static'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['ALLOWED_EXTENSIONS'] = ['stl']
 
 
@@ -23,6 +24,8 @@ def upload_file():
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
+            if not os.path.isdir(app.config['UPLOAD_FOLDER']):
+                os.makedirs(app.config['UPLOAD_FOLDER'])
             file_path = (os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
             file.save(file_path)
     return render_template('index.html', title='upload_file')
