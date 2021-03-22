@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title></title>
+    </head>
+    <body>
+    <h1>Extracted data</h1>
+
+    <h4>Part characteristics: </h4>
+        <li><b>Volume:</b> {{ data['volume'] }}</li>
+        <li><b>Area:</b> {{ data['area'] }}</li>
+
+    <h4>Bounding Box: </h4>
+    {% for k, v in data['bounding_box'].items() %}
+        <li><b>{{ k }}:</b> {{ v }}</li>
+    {% endfor %}
+
+    <h4>Bounding Cylinder: </h4>
+    {% for k, v in data['bounding_cylinder'].items() %}
+        <li><b>{{ k }}:</b> {{ v }}</li>
+    {% endfor %}
+
+    <h4>Bounding Sphere: </h4>
+    {% for k, v in data['bounding_sphere'].items() %}
+        <li><b>{{ k }}:</b> {{ v }}</li>
+    {% endfor %}
+
+    <h4>Bounding Cube: </h4>
+    {% for k, v in data['bounding_cube'].items() %}
+        <li><b>{{ k }}:</b> {{ v }}</li>
+    {% endfor %}
+    </body>
+</html>
